@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+.chat-title {
+  background-color: #6c6c6c;
+  color: white;
+}
+
+#chat-container {
+  background-color: #fcf7f4;
+}
+
+#menu {
+  background-color: #6c6c6c;
+
+  .user-item {
+    padding: 0.5rem 0;
+  }
+
+  #leave {
+    background-color: red;
+  }
+
+  #settings {
+    background-color: blue;
+  }
+}
+
+#chat {
+  border-color: gray;
+}
+
+#form {
+  background-color: #d6d6d6;
+  backdrop-filter: blur(10px);
+
+  button {
+    background: #333333;
+    color: white;
+    border: none;
+  }
+}
+
+#messages {
+  list-style-type: none;
+
+  li {
+    padding: 0.5rem 1rem;
+  }
+}
+
+#user-list::-webkit-scrollbar,
+#messages::-webkit-scrollbar {
+  width: 0px;
+}
+
+#user-list::-webkit-scrollbar-track,
+#messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#user-list::-webkit-scrollbar-thumb,
+#messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
