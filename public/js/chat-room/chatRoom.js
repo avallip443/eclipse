@@ -48,14 +48,14 @@ socket.on("chat message", (data) => {
 
   const userMsgStamp = document.createElement("span");
   userMsgStamp.classList.add("message-stamp");
-  userMsgStamp.appendChild(document.createTextNode(profile.username));
+  userMsgStamp.appendChild(document.createTextNode(data.username));
 
   const userMsgText = document.createElement("div");
   userMsgText.classList.add("message-text");
   userMsgText.appendChild(document.createTextNode(data.text));
 
   const userAvatar = document.createElement("img");
-  userAvatar.src = profile.avatar;
+  userAvatar.src = data.avatar;
   userAvatar.classList.add("avatar");
 
   const isUser = data.id === socket.id.substring(0, 5);

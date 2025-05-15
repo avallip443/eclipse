@@ -43,6 +43,8 @@ io.on("connection", (socket) => {
 
     io.to(user.chatId).emit("chat message", {
       id: user.id,
+      avatar: user.avatar,
+      username: user.username,
       text: msg,
     });
   });
