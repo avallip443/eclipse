@@ -14,31 +14,51 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+app.get("/chat/:chatId", (req, res) => {
+  res.sendFile(__dirname + "/views/chat-room.html");
+});
+
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
-  users.set(socket.id, { id: socket.id.substring(0, 5) });
-  io.emit("user list", Array.from(users.values()));
+  socket.on("createRoom", ({ chatId, username, avatar }) => {
+    socket.join(chatId);
+
+    users.set(socket.id, {
+      id: socket.id.substring(0, 5),
+      username,
+      avatar,
+      chatId,
+    });
+
+    socket.to(chatId).emit("system message", `${username} joined the chat.`);
+
+    const chatUsers = Array.from(users.values()).filter(u => u.chatId === chatId);
+    io.to(chatId).emit("user list", chatUsers);
+  });
 
   socket.on("chat message", (msg) => {
-    console.log("Message: " + msg);
+    const user = users.get(socket.id);
+    if (!user) return;
 
-    io.emit("chat message", {
-      id: socket.id.substring(0, 5),
+    io.to(user.chatId).emit("chat message", {
+      id: user.id,
       text: msg,
     });
   });
 
-  io.emit("system message", `${socket.id.substring(0, 5)} joined the chat.`);
-
   socket.on("disconnect", () => {
-    console.log("User disconnected:", socket.id);
+    const user = users.get(socket.id);
+    if (!user) return;
+
     users.delete(socket.id);
-    io.emit("system message", `${socket.id.substring(0, 5)} left the chat.`);
-    io.emit("user list", Array.from(users.values()));
+    io.to(user.chatId).emit("system message", `${user.username} left the chat.`);
+
+    const chatUsers = Array.from(users.values()).filter(u => u.chatId === user.chatId);
+    io.to(user.chatId).emit("user list", chatUsers);
   });
 });
 
 server.listen(PORT, () => {
-  console.log(`listening on *:#{PORT}`);
+  console.log(`listening on *:${PORT}`);
 });
