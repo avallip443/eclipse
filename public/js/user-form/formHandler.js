@@ -23,19 +23,21 @@ export function initForm(formId, getMode, getAvatar) {
       return;
     }
 
+    const chat = {
+      mode,
+      chatName: chatName || null,
+      chatId: mode === "new" ? crypto.randomUUID().slice(0, 12) : chatId,
+    };
+
     const profile = {
       username,
       avatar: getAvatar,
-      mode,
-      chatName: chatName || null,
+      chatId: chat.chatId,
     };
 
-    profile.chatId =
-      mode === "new"
-        ? crypto.randomUUID().slice(0, 12)
-        : chatId;
-
+    sessionStorage.setItem("chatInfo", JSON.stringify(chat));
     sessionStorage.setItem("userProfile", JSON.stringify(profile));
+
     window.location.href = `/chat/${profile.chatId}`;
   });
 }

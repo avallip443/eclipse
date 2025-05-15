@@ -1,31 +1,41 @@
 const socket = io();
-const profile = JSON.parse(sessionStorage.getItem("userProfile"));
-const chatId = window.location.pathname.split("/").pop();
 
+const profile = JSON.parse(sessionStorage.getItem("userProfile"));
 if (!profile) {
   alert("Profile not found. Redirecting...");
   window.location.href = "/";
 }
 
-profile.chat = chatId;
+// const chat = JSON.parse(sessionStorage.getItem("chatInfo"));
+const chatId = window.location.pathname.split("/").pop();
+
+if (!chat) {
+  alert("Chat not found. Redirecting...");
+  window.location.href = "/";
+}
+
+const { username, avatar } = profile;
 
 socket.emit("createRoom", {
-  chatId: profile.chat,
-  username: profile.username,
-  avatar: profile.avatar,
+  chatId,
+  username,
+  avatar,
 });
 
 document.getElementById("form").addEventListener("submit", function (e) {
   e.preventDefault();
   const input = document.getElementById("input");
-  if (input.value.trim()) {
-    socket.emit("chat message", input.value.trim());
+  const message = input.value.trim();
+
+  if (message) {
+    socket.emit("chat message", message);
     input.value = "";
   }
 });
 
 socket.on("chat message", (data) => {
   const messages = document.getElementById("messages");
+  
   const item = document.createElement("li");
   item.classList.add("message-item");
 
