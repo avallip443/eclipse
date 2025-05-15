@@ -6,7 +6,7 @@ if (!profile) {
   window.location.href = "/";
 }
 
-// const chat = JSON.parse(sessionStorage.getItem("chatInfo"));
+const chat = JSON.parse(sessionStorage.getItem("chatInfo"));
 const chatId = window.location.pathname.split("/").pop();
 
 if (!chat) {
@@ -21,6 +21,8 @@ socket.emit("createRoom", {
   username,
   avatar,
 });
+
+document.getElementById("chat-title").textContent = chat.chatName;
 
 document.getElementById("form").addEventListener("submit", function (e) {
   e.preventDefault();

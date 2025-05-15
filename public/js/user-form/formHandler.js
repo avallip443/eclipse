@@ -25,7 +25,7 @@ export function initForm(formId, getMode, getAvatar) {
 
     const chat = {
       mode,
-      chatName: chatName || null,
+      chatName: chatName || "Untitled Chat Room",
       chatId: mode === "new" ? crypto.randomUUID().slice(0, 12) : chatId,
     };
 
