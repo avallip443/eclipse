@@ -4,12 +4,16 @@
     <title>Eclipse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/themes.css" />
     <script type="module" src="/js/chat-room/chatRoom.js"></script>
+    <script type="module" src="/js/chat-room/themeModal.js"></script>
   </head>
 
-  <body class="h-screen overflow-hidden bg-gray-900">
+  <body
+    class="h-screen overflow-hidden theme-dark bg-[var(--bg)] text-[var(--text)]"
+  >
     <div class="h-full flex flex-col">
-      <div class="flex justify-center bg-gray-800">
+      <div class="flex justify-center bg-[var(--secondary)]">
         <h1 id="chat-title" class="text-3xl font-bold py-4"></h1>
       </div>
 
@@ -19,7 +23,7 @@
       >
         <div
           id="menu"
-          class="col-span-1 flex flex-col bg-gray-800 rounded-[2.5rem] m-2 mt-3 px-3 py-6 overflow-y-auto"
+          class="col-span-1 flex flex-col bg-[var(--secondary)] rounded-[2.5rem] m-2 mt-3 px-3 py-6 overflow-y-auto"
         >
           <div
             id="user-list"
@@ -32,39 +36,38 @@
           >
             <button
               id="leave"
-              class="w-full p-2 rounded-lg bg-red-700 hover:bg-red-800"
+              class="w-full p-2 rounded-lg bg-[var(--leave)] hover:bg-[var(--leave-hover)]"
               onclick="window.location.href='/'"
             >
               leave
             </button>
             <button
-              id="settings"
-              class="w-full p-2 rounded-lg bg-blue-600 hover:bg-blue-700"
-              onclick="alert('coming soon!')"
+              id="themes"
+              class="w-full p-2 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
             >
-              settings
+              themes
             </button>
           </div>
         </div>
 
         <div
           id="chat"
-          class="col-span-4 flex flex-col overflow-hidden border-l border-gray-800"
+          class="col-span-4 flex flex-col overflow-hidden border-l border-[var(--secondary)]"
         >
           <ul id="messages" class="flex-1 overflow-y-auto p-0 text-black"></ul>
 
           <form
             id="form"
             action=""
-            class="flex w-full h-12 bg-gray-800 p-1 border-box"
+            class="flex w-full h-12 bg-[var(--secondary)] p-1 border-box"
           >
             <input
               id="input"
               autocomplete="off"
-              class="flex-1 bg-gray-700 border-none rounded-xl p-2 m-[0.25rem] focus:outline-none"
+              class="flex-1 bg-[var(--input)] border-none rounded-xl p-2 m-[0.25rem] focus:outline-none"
             />
             <button
-              class="px-4 m-1 rounded-lg border-none text-sm bg-blue-600 hover:bg-blue-700"
+              class="px-4 m-1 rounded-lg border-none text-sm bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
             >
               send
             </button>
@@ -73,6 +76,85 @@
       </section>
 
       <script src="/socket.io/socket.io.js"></script>
+    </div>
+
+    <div
+      id="theme-modal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50"
+    >
+      <div class="bg-[var(--bg)] p-6 rounded-2xl w-[90%] max-w-md shadow-xl">
+        <h2 class="text-xl font-bold mb-4 text-[var(--text)]">
+          Choose a Theme
+        </h2>
+        <div class="space-y-2">
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-light"
+          >
+            🌞 light
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-dark"
+          >
+            🌙 dark
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-twilight"
+          >
+            🌇 twilight
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-cyber"
+          >
+            🤖 cyber
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-vampire"
+          >
+            🧛 vampire
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-ember"
+          >
+            🔥 ember
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-canyon"
+          >
+            🌅 canyon
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-orchid"
+          >
+            🍇 orchid
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-meadow"
+          >
+            🍂 meadow
+          </button>
+          <button
+            class="theme-select w-full p-2 rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)]"
+            data-theme="theme-galaxy"
+          >
+            🌌 galaxy
+          </button>
+        </div>
+        <button
+          id="close-modal"
+          class="mt-4 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+        >
+          close
+        </button>
+      </div>
     </div>
   </body>
 </html>

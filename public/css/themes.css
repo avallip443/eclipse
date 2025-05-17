@@ -1,0 +1,141 @@
+@layer utilities {
+  .theme-light {
+    --bg: #f5f5f4;
+    --text: #111827;
+    --text-accent: #9ca3af;
+    --secondary: #d6d3d1;
+    --accent: #93c5fd;
+    --accent-hover: #60a5fa;
+    --input: #e7e5e4;
+    --leave: #fca5a5;
+    --leave-hover: #f87171;
+    --message-incoming-text: #111827;
+    --message-outgoing-text: #111827;
+  }
+
+  .theme-dark {
+    --bg: #111827;
+    --text: #f9fafb;
+    --text-accent: #9ca3af;
+    --secondary: #1f2937;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --input: #334155;
+    --leave: #b91c1c;
+    --leave-hover: #991b1b;
+    --message-incoming-text: #f9fafb;
+    --message-outgoing-text: #f9fafb;
+  }
+
+  .theme-twilight {
+    --bg: #2c1e2f;
+    --text: #fbead1;
+    --text-accent: #fbbf24;
+    --secondary: #42293d;
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    --input: #57314e;
+    --leave: #be123c;
+    --leave-hover: #9f1239;
+    --message-incoming-text: #fbead1;
+    --message-outgoing-text: #fbead1;
+  }
+
+  .theme-cyber {
+    --bg: #0f0f0f;
+    --text: #e0e7ff;
+    --text-accent: #a5b4fc;
+    --secondary: #1e1b4b;
+    --accent: #a78bfa;
+    --accent-hover: #8b5cf6;
+    --input: #312e81;
+    --leave: #f472b6;
+    --leave-hover: #be185d;
+    --message-incoming-text: #e0e7ff;
+    --message-outgoing-text: #0f0f0f;
+  }
+
+  .theme-vampire {
+    --bg: #1f1f1f;
+    --text: #fef2f2;
+    --text-accent: #e5e7eb;
+    --secondary: #4b1c1c;
+    --accent: #f87171;
+    --accent-hover: #dc2626;
+    --input: #7f1d1d;
+    --leave: #fcd34d;
+    --leave-hover: #f59e0b;
+    --message-incoming-text: #fef2f2;
+    --message-outgoing-text: #1f1f1f;
+  }
+
+  .theme-ember {
+    --bg: #1c1917;
+    --text: #fef3c7;
+    --text-accent: #fcd34d;
+    --secondary: #292524;
+    --accent: #fbbf24;
+    --accent-hover: #f59e0b;
+    --input: #3f3f46;
+    --leave: #f87171;
+    --leave-hover: #dc2626;
+    --message-incoming-text: #fef3c7;
+    --message-outgoing-text: #1c1917;
+  }
+
+  .theme-canyon {
+    --bg: #fff1e5;
+    --text: #5c1d0e;
+    --text-accent: #a16207;
+    --secondary: #fcd5ce;
+    --accent: #fb8500;
+    --accent-hover: #d97706;
+    --input: #fde9d9;
+    --leave: #ef476f;
+    --leave-hover: #c53052;
+    --message-incoming-text: #5c1d0e;
+    --message-outgoing-text: #1e293b;
+  }
+
+  .theme-orchid {
+      --bg: #f3e8ff;
+      --text: #4c1d95;
+      --text-accent: #9333ea;
+      --secondary: #ddd6fe;
+      --accent: #a78bfa;
+      --accent-hover: #8b5cf6;
+      --input: #e0f2f1;
+      --leave: #fb7185;
+      --leave-hover: #f43f5e;
+      --message-incoming-text: #4c1d95;
+      --message-outgoing-text: #1f2937;
+  }
+
+  .theme-meadow {
+      --bg: #f0fdf4;
+      --text: #14532d;
+      --text-accent: #15803d;
+      --secondary: #bbf7d0;
+      --accent: #86efac;
+      --accent-hover: #4ade80;
+      --input: #dcfce7;
+      --leave: #f87171;
+      --leave-hover: #ef4444;
+      --message-incoming-text: #14532d;
+      --message-outgoing-text: #1e293b;
+  }
+
+  .theme-galaxy {
+      --bg: #1e1b4b;
+      --text: #f3e8ff;
+      --text-accent: #f3e8ff;
+      --secondary: #312e81;
+      --accent: #60a5fa;
+      --accent-hover: #3b82f6;
+      --input: #4f46e5;
+      --leave: #f472b6;
+      --leave-hover: #ec4899;
+      --message-incoming-text: #f3e8ff;
+      --message-outgoing-text: #1e1b4b;
+  }
+}
