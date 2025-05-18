@@ -52,7 +52,7 @@
     --leave: #f472b6;
     --leave-hover: #be185d;
     --message-incoming-text: #e0e7ff;
-    --message-outgoing-text: #0f0f0f;
+    --message-outgoing-text: #e0e7ff;
   }
 
   .theme-vampire {
@@ -66,7 +66,7 @@
     --leave: #fcd34d;
     --leave-hover: #f59e0b;
     --message-incoming-text: #fef2f2;
-    --message-outgoing-text: #1f1f1f;
+    --message-outgoing-text: #fef2f2;
   }
 
   .theme-ember {
@@ -94,7 +94,7 @@
     --leave: #ef476f;
     --leave-hover: #c53052;
     --message-incoming-text: #5c1d0e;
-    --message-outgoing-text: #1e293b;
+    --message-outgoing-text: #fff1e5;
   }
 
   .theme-orchid {
@@ -108,7 +108,7 @@
       --leave: #fb7185;
       --leave-hover: #f43f5e;
       --message-incoming-text: #4c1d95;
-      --message-outgoing-text: #1f2937;
+      --message-outgoing-text: #e0f2f1;
   }
 
   .theme-meadow {
@@ -136,6 +136,6 @@
       --leave: #f472b6;
       --leave-hover: #ec4899;
       --message-incoming-text: #f3e8ff;
-      --message-outgoing-text: #1e1b4b;
+      --message-outgoing-text: #f3e8ff;
   }
 }

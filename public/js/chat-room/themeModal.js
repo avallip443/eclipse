@@ -25,7 +25,7 @@ themeButtons.forEach((btn) => {
       "theme-canyon",
       "theme-orchid",
       "theme-meadow",
-      "thme-galaxy"
+      "theme-galaxy"
     );
 
     document.body.classList.add(selectedTheme);

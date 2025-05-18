@@ -85,7 +85,9 @@ socket.on("system message", (msg) => {
   const item = document.createElement("li");
   item.textContent = msg;
   item.style.fontStyle = "italic";
-  item.style.color = "gray";
+  item.style.color = "var(--text-accent)";
+  item.style.display = "flex";
+  item.style.justifyContent = "center";
   document.getElementById("messages").appendChild(item);
 });
 
