@@ -5,6 +5,14 @@ Eclipse is a lightweight chat application where users can create temporary profi
 I created Eclipse to learn more about websockets. My goal was to build an application that explores user session management, event-based architectures, and connection security, while also providing a creative outlet for UI/UX design. I had a lot of fun building this!
 
 ## Screenshots
+Chat & profile menu
+![image](https://github.com/user-attachments/assets/4e795ed1-e3e8-4d19-bbdc-5f74fa7954e0)
+
+Sample chat with 3 users
+![image](https://github.com/user-attachments/assets/ab51b6e0-f214-4580-96e3-09f36cbc5da7)
+
+Sample chat with the Twilight theme selected
+![image](https://github.com/user-attachments/assets/8145ca5e-77b2-4111-919c-e8128f487337)
 
 ## Features
 - **Temporary profiles**: Users can create a temporary name and avatar without creating an account.
