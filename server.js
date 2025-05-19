@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+app.get("/profile", (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
+
 app.get("/chat/:chatId", (req, res) => {
   res.sendFile(__dirname + "/views/chat-room.html");
 });

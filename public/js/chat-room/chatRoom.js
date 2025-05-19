@@ -1,16 +1,16 @@
 const socket = io();
 
 const profile = JSON.parse(sessionStorage.getItem("userProfile"));
+const chatId = window.location.pathname.split("/").pop();
+
 if (!profile) {
-  alert("Profile not found. Redirecting...");
-  window.location.href = "/";
+  sessionStorage.setItem("pendingChatId", chatId);
+  window.location.href = "/profile";
 }
 
 const chat = JSON.parse(sessionStorage.getItem("chatInfo"));
-const chatId = window.location.pathname.split("/").pop();
 
 if (!chat) {
-  alert("Chat not found. Redirecting...");
   window.location.href = "/";
 }
 
@@ -37,7 +37,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
 
 socket.on("chat message", (data) => {
   const messages = document.getElementById("messages");
-  
+
   const item = document.createElement("li");
   item.classList.add("message-item");
 
@@ -106,4 +106,14 @@ socket.on("user list", (userList) => {
     userItem.className = "user-item";
     menu.appendChild(userItem);
   });
+});
+
+document.getElementById("share").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    alert("Link copied to clipboard!");
+  } catch (err) {
+    console.error("Failed to copy:", err);
+    alert("Failed to copy the link.");
+  }
 });

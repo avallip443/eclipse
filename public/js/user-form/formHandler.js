@@ -8,6 +8,9 @@ export function initForm(formId, getMode, getAvatar) {
     const chatId = form.querySelector("#chat-id")?.value?.trim();
     const mode = getMode();
 
+    const roomInput = document.querySelector('input[name="room"]');
+    const roomId = roomInput?.value;
+
     if (!username || username.length > 24 || /[^a-zA-Z0-9]/.test(username)) {
       alert("Enter a valid username (letters/numbers only, max 24 chars)");
       return;
@@ -18,7 +21,7 @@ export function initForm(formId, getMode, getAvatar) {
       return;
     }
 
-    if (mode === "join" && (!chatId || chatId.length < 4)) {
+    if (mode === "join" && !roomId && (!chatId || chatId.length < 4)) {
       alert("Enter a valid chat ID.");
       return;
     }
@@ -38,6 +41,10 @@ export function initForm(formId, getMode, getAvatar) {
     sessionStorage.setItem("chatInfo", JSON.stringify(chat));
     sessionStorage.setItem("userProfile", JSON.stringify(profile));
 
-    window.location.href = `/chat/${profile.chatId}`;
+    if (roomId) {
+      window.location.href = `/chat/${roomId}`;
+    } else {
+      window.location.href = `/chat/${profile.chatId}`;
+    }
   });
 }
