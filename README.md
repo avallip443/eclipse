@@ -45,3 +45,19 @@ This application was creating using:
 - NodeJS
 - SocketIO
 - TailwindCSS
+
+## Installation
+To run this application locally on your machine:
+1. Clone the repository
+```
+git clone https://github.com/avallip443/eclipse.git
+cd eclipse
+```
+2. Install dependencies
+```
+npm install
+```
+3. Start the server
+```
+node server.js
+```
